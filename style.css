@@ -1,0 +1,112 @@
+.range-wrapper1{
+    width: 340px;
+    margin-left:150px;
+    margin-top:60px;
+    position:relative;
+    scale:1.6;
+}
+
+.range-wrapper2{
+    width: 300px;
+    margin: 25px;
+    position:relative;
+    left: 140px;
+    scale:1.4;
+}
+
+.range-wrapper3{
+    height: 300px;
+    margin: 25px;
+    scale:1.4;
+    left:20px;
+    top:100px;
+}
+
+.rectdisp{
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 140px;
+    left: 162px;
+    scale:1.4;
+}
+
+.parentdiv{
+    position: relative;
+}
+
+.yoko{
+    /* display:flex; */
+}
+
+/*スライダーのつまみ縦線非表示*/
+.noUi-horizontal .noUi-handle::before, .noUi-horizontal .noUi-handle::after  {
+content: none;
+}
+.noUi-vertical .noUi-handle::before, .noUi-vertical .noUi-handle::after  {
+content: none;
+}
+
+input[type=checkbox]{
+    transform:scale(3);
+}
+
+.check1{
+    position: relative;
+    left:650px;
+    top:-20px;
+}
+
+.check2{
+    position:absolute;
+    top:0px;
+    left:574px;
+}
+
+.check3{
+    position:absolute;
+    left:43px;
+    top:554px;
+}
+
+.check4{
+    position:absolute;
+    left:574px;
+    top:454px;
+}
+
+.label1{
+    position:absolute;
+    left:620px;
+    top:420px;
+    font-size:30px;
+}
+
+
+.button1{
+    position:absolute;
+    left:600px;
+    top:530px;
+    transform:scale(3);
+    white-space:nowrap;
+}
+
+
+html,body{
+    margin:0;
+    padding:0;
+
+    /* overflow:hidden;  */
+
+    /*     
+    -webkit-touch-callout:none;
+    -webkit-user-select:none; */
+
+}
+
+
+canvas{
+    transform:scale(1);
+}
+
+

@@ -1,0 +1,65 @@
+<head>
+  <meta name="viewport" charset="utf-8" content="width=device-width initial-scale=1.0"/> <!--文字化け防止 -->
+  <link rel = "stylesheet" href="nouislider.min.css">
+  <link rel = "stylesheet" href="style.css">
+</head>
+<body>
+  
+  <!--使用ライブラリ-->
+  <script src="https://unpkg.com/three@0.152.2/build/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.7/dat.gui.min.js"></script>
+  <script src="https://unpkg.com/three@0.147.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+  <script src="nouislider.min.js"></script>
+
+
+  <!--座標ファイルに含まれる変数（パラメータ）を宣言-->
+  <script>
+    var longitude, meridian, para1;
+  </script>
+
+  <!--メインプログラム-->
+  <script src="script7.js"></script>
+
+  <!--キャンバスの追加-->
+
+  <p>図1 直交投影v5_6</p>
+  <script>
+    let myscene2 = new IScene({projection:'ortho'});
+    myscene2.IaddAnimeObject('cubevts.txt','cubeindex.txt',{material:'normal'});
+  </script>
+
+  <p>図2</p>
+  <script>
+    let myscene3 = new IScene();
+    myscene3.IaddAnimeObject('cubevts1.txt','cubeindex1.txt',{scale:2});
+  </script>
+
+
+  <p>図3　cuttingplane100枚</p>
+  <script>
+    let myscene6 = new IScene();
+    myscene6.IaddObject('xyzplanevts.txt','xyzplaneindex.txt',{scale:300});
+    myscene6.IaddCuttingPlanes('spherecut100.txt',{scale:300})
+  </script>
+
+
+  <p>図4</p>
+  <script>
+    let myscene7 = new IScene();
+    myscene7.IaddSlider('longitude',{min:100, max:300});
+    myscene7.IaddSlider('meridian',{min:30, max:90});
+    myscene7.IaddObject('torusvts1.txt', 'torusindex1.txt',{range:true, wireframe:true});
+  </script>
+
+
+  <p>図5</p>
+  <script>
+    let myscene = new IScene();
+    myscene.IaddObject('sphere2vts.txt','sphere2index.txt',{scale:200, range:true, wireframe:true});
+  </script>
+
+
+
+</body>
