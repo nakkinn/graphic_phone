@@ -29,8 +29,8 @@ class IScene extends THREE.Scene{
         option = {...defaultvalues, ...option}; //デフォルトオプションに入力されたオプションを上書き
 
         //キャンバスサイズ
-        const canvaswidth = 760/2;    
-        const canvasheight = 540/2;
+        const canvaswidth = 380;    
+        const canvasheight = 270;
 
         //キャンバス
         this.block = document.createElement('div');
@@ -76,7 +76,7 @@ class IScene extends THREE.Scene{
 
 
         //ライティング（mathematica風）
-        let lighta = new THREE.AmbientLight(0x663333); //環境光
+        let lighta = new THREE.AmbientLight(0x663333,0.5); //環境光
 
         if(option.light=='4color'){
             let light1 = new THREE.DirectionalLight(0x002E80,2);   //指向性ライト
@@ -90,7 +90,7 @@ class IScene extends THREE.Scene{
             this.add(lighta, light1, light2, light3, light4);
         }else{
             let light5 = new THREE.DirectionalLight(0xffffff,1);
-            light5.position.copy(new THREE.Vector4(0,1,3));
+            light5.position.copy(new THREE.Vector4(0,1,2));
             this.add(lighta, light5);
         }
 
@@ -203,8 +203,8 @@ class IScene extends THREE.Scene{
         this.block.appendChild(tmp);    //webページにスライダーを追加
         
         //スライダーの設定
-        tmp.style.width = option.width;
-        tmp.style.height = option.height;
+        // tmp.style.width = option.width;
+        // tmp.style.height = option.height;
         tmp.min = option.min;
         tmp.max = option.max;
         tmp.step = option.step;
@@ -212,8 +212,8 @@ class IScene extends THREE.Scene{
         else    tmp.value = (option.min+option.max)/2;
         
 
-        tmp.style.scale = 3;
-        tmp.style.marginLeft = '220px';
+        // tmp.style.scale = 1.5;
+        // tmp.style.marginLeft = '60px';
 
 
         this.parasliders.push([parameter, tmp]);    //パラメータ名とスライダーを記録
@@ -223,7 +223,7 @@ class IScene extends THREE.Scene{
 
     //IGraphicComplexクラスを呼び出し、オプションを渡す
     IaddObject(vtsstring, index, option){
-        const defaultvalues = {scale:1, material:'custom', range:false, wireframe:false};
+        const defaultvalues = {scale:1, material:0xffffff, range:false, wireframe:false};
         option = {...defaultvalues, ...option};
         this.object.push(new IGraphicComplex(vtsstring, index, this, option));
     }
@@ -327,8 +327,6 @@ class IGraphicComplex{
                 let material, wirematerial;
                 if(that.option.material=='normal'){
                     material = new THREE.MeshNormalMaterial({side:THREE.DoubleSide});    //NormalMaterial（ライティングを無視する）
-                }else if(that.option.material=='custom'){
-                    material = new THREE.MeshLambertMaterial({side:THREE.DoubleSide});   //ツヤのないマテリアル（ライトが必要）
                 }else{
                     material = new THREE.MeshLambertMaterial({side:THREE.DoubleSide, color:that.option.material});
                 }
@@ -711,10 +709,10 @@ class IAnimeGraphic{
                     scene.block.appendChild(that.slider); //webページにスライダー追加
 
                     //スライダー設定
-                    that.slider.style.width = 200;
-                    that.slider.style.height = 100;
-                    that.slider.style.scale = 3;
-                    that.slider.style.marginLeft = '220px';
+                    // that.slider.style.width = 200;
+                    // that.slider.style.height = 100;
+                    // that.slider.style.scale = 1.5;
+                    // that.slider.style.marginLeft = '60px';
                     that.slider.min = 0;
                     that.slider.max = that.vtsa.length-1;    
                     that.slider.value = 0;
@@ -742,7 +740,7 @@ class IAnimeGraphic{
                 if(that.option.material=='normal'){
                     material = new THREE.MeshNormalMaterial({side:THREE.DoubleSide});
                 }else{
-                    material = new THREE.MeshLambertMaterial({side:THREE.DoubleSide});
+                    material = new THREE.MeshLambertMaterial({side:THREE.DoubleSide, color:that.option.material});
                 }
                 material.flatShading = true;   //フラットシェード
 

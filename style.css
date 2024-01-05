@@ -1,46 +1,118 @@
+html,body{
+    margin:0;   /*縁の余白なし*/
+    padding:0;
+    /*     
+    -webkit-touch-callout:none;
+    -webkit-user-select:none; */
+}
+
+/*pタグ（文字）*/
+p{
+    margin-left:5px;
+}
+
+
+/*丸つまみスライダー*/
+input[type="range"]{
+    width:200px;
+    transform:scale(1.5);
+    margin-left:60px;
+}
+
+
+/*2つつまみスライダー（単体）*/
 .range-wrapper1{
-    width: 340px;
-    margin-left:150px;
-    margin-top:60px;
     position:relative;
-    scale:1.6;
+    width: 270px;
+    margin-left:20px;
+    margin-top:40px;
 }
 
-.range-wrapper2{
-    width: 300px;
-    margin: 25px;
-    position:relative;
-    left: 140px;
-    scale:1.4;
+/*2つつまみスライダー（単体）の右のチェックボックス*/
+.check1{
+    position: relative;
+    left:312px;
+    top:-17px;
+    transform:scale(1.5);
 }
 
-.range-wrapper3{
-    height: 300px;
-    margin: 25px;
-    scale:1.4;
-    left:20px;
-    top:100px;
-}
 
-.rectdisp{
-    width: 300px;
-    height: 300px;
-    position: absolute;
-    top: 140px;
-    left: 162px;
-    scale:1.4;
-}
 
+
+/*2軸スライダーの親要素*/
 .parentdiv{
     position: relative;
-    height:600px;
+    height:380px;
 }
 
-.yoko{
-    /* display:flex; */
+/*2つつまみスライダー（横軸）*/
+.range-wrapper2{
+    position:relative;
+    width: 270px;
+    left: 60px;
+    top:20px;
 }
 
-/*スライダーのつまみ縦線非表示*/
+/*2つつまみスライダー（縦軸）*/
+.range-wrapper3{
+    position:relative;
+    height: 270px;
+    left:15px;
+    top:40px;
+}
+
+/*2つつまみスライダー（横軸）の右のチェックボックス*/
+.check2{
+    position:relative;
+    top:-267px;
+    left:352px;
+    transform:scale(1.5);
+}
+
+/*2つつまみスライダー（縦軸）の下のチェックボックス*/
+.check3{
+    position:absolute;
+    left:13px;
+    top:350px;
+    transform:scale(1.5);
+}
+
+/*2軸スライダーの領域*/
+.rectdisp{
+    position: absolute;
+    width: 270px;
+    height: 270px;
+    top: 60px;
+    left: 58px;
+}
+
+/*ANDORチェックボックス*/
+.check4{
+    position:absolute;
+    left:100px;
+    top:352px;
+    transform:scale(1.5);
+}
+
+/*ANDORラベル*/
+.label1{
+    position:absolute;
+    left:121px;
+    top:337px;
+    font-size:15px;
+}
+
+/*反転ボタン*/
+.button1{
+    position:absolute;
+    left:220px;
+    top:348px;
+    transform:scale(1.1);
+    white-space:nowrap;
+}
+
+
+/*2つつまみスライダーのつまみ縦線非表示*/
 .noUi-horizontal .noUi-handle::before, .noUi-horizontal .noUi-handle::after  {
 content: none;
 }
@@ -48,69 +120,19 @@ content: none;
 content: none;
 }
 
-input[type=checkbox]{
-    transform:scale(3);
-}
-
-.check1{
-    position: relative;
-    left:650px;
-    top:-20px;
-}
-
-.check2{
-    position:absolute;
-    top:0px;
-    left:574px;
-}
-
-.check3{
-    position:absolute;
-    left:43px;
-    top:554px;
-}
-
-.check4{
-    position:absolute;
-    left:574px;
-    top:454px;
-}
-
-.label1{
-    position:absolute;
-    left:620px;
-    top:420px;
-    font-size:30px;
-}
 
 
-.button1{
-    position:absolute;
-    left:600px;
-    top:530px;
-    transform:scale(3);
-    white-space:nowrap;
-}
 
 
-html,body{
-    margin:0;
-    padding:0;
-
-    /* overflow:hidden;  */
-
-    /*     
-    -webkit-touch-callout:none;
-    -webkit-user-select:none; */
-
-}
 
 
-canvas{
-    transform:scale(1);
-}
 
 
-p{
-    font-size:200%;
-}
+
+
+
+
+
+
+
+
