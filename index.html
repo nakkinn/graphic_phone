@@ -26,40 +26,49 @@
 
   <p>図1 直交投影v5_6</p>
   <script>
-    let myscene2 = new IScene({projection:'ortho'});
-    myscene2.IaddAnimeObject('cubevts.txt','cubeindex.txt',{material:'normal'});
+    let myscene1 = new IScene({projection:'ortho', background:0x000000});
+    myscene1.IaddAnimeObject('data/cubevts.txt','data/cubeindex.txt',{material:'normal'});
   </script>
 
   <p>図2</p>
   <script>
-    let myscene3 = new IScene();
-    myscene3.IaddAnimeObject('cubevts1.txt','cubeindex1.txt',{scale:2});
+    let myscene2 = new IScene();
+    myscene2.IaddAnimeObject('data/cubevts1.txt','data/cubeindex1.txt',{scale:2});
   </script>
 
 
-  <p>図3　cuttingplane100枚</p>
+  <p>図3 cuttingplane100枚</p>
   <script>
-    let myscene6 = new IScene();
-    myscene6.IaddObject('xyzplanevts.txt','xyzplaneindex.txt',{scale:300});
-    myscene6.IaddCuttingPlanes('spherecut100.txt',{scale:300})
+    let myscene3 = new IScene();
+    myscene3.IaddObject('data/xyzplanevts.txt','data/xyzplaneindex.txt',{scale:300});
+    myscene3.IaddCuttingPlanes('data/spherecut100.txt',{scale:300})
   </script>
 
 
   <p>図4</p>
   <script>
-    let myscene7 = new IScene();
-    myscene7.IaddSlider('longitude',{min:100, max:300});
-    myscene7.IaddSlider('meridian',{min:30, max:90});
-    myscene7.IaddObject('torusvts1.txt', 'torusindex1.txt',{range:true, wireframe:true});
+    let myscene4 = new IScene();
+    myscene4.IaddSlider('longitude',{min:100, max:300});
+    myscene4.IaddSlider('meridian',{min:30, max:90});
+    myscene4.IaddObject('data/torusvts1.txt', 'data/torusindex1.txt',{scale:1.3,range:true, wireframe:true});
   </script>
 
 
   <p>図5</p>
   <script>
-    let myscene = new IScene();
-    myscene.IaddObject('sphere2vts.txt','sphere2index.txt',{scale:200, range:true, wireframe:true});
+    let myscene5 = new IScene();
+    myscene5.IaddObject('data/sphere2vts.txt','data/sphere2index.txt',{scale:300, range:true, wireframe:true});
   </script>
 
 
+  <p>図6</p>
+  <script>
+    let myscene6 = new IScene({light:'simple'});
+    myscene6.IaddObject('data/tetravts1.txt','data/tetraindex.txt',{scale:100, material:0xff0000});
+    myscene6.IaddObject('data/tetravts2.txt','data/tetraindex.txt',{scale:100, material:0x00dd00});
+    myscene6.IaddObject('data/tetravts3.txt','data/tetraindex.txt',{scale:100, material:0x0000ff});
+    myscene6.IaddObject('data/tetravts4.txt','data/tetraindex.txt',{scale:100, material:0xff8800});
+    myscene6.IaddObject('data/tetravts5.txt','data/tetraindex.txt',{scale:100, material:0xdddd00});
+  </script>
 
 </body>

@@ -33,6 +33,7 @@
 
 .parentdiv{
     position: relative;
+    height:600px;
 }
 
 .yoko{
@@ -110,3 +111,6 @@ canvas{
 }
 
 
+p{
+    font-size:200%;
+}

@@ -12,9 +12,6 @@ document.addEventListener('pointerup',function(){    //変更
     mouseIsPressed = false;
 });
 
-//スクロール禁止
-//document.addEventListener('touchmove',disableScroll,{passive:false});
-//document.removeEventListener('touchmove',disableScroll,{passive:false});
 
 function disableScroll(event){
     event.preventDefault();
@@ -28,7 +25,7 @@ class IScene extends THREE.Scene{
         super();
 
         //シーンのオプション
-        const defaultvalues = {projection:'pers'};  //オプションのデフォルト値
+        const defaultvalues = {projection:'pers', light:'4color', background:0xdddddd};  //オプションのデフォルト値
         option = {...defaultvalues, ...option}; //デフォルトオプションに入力されたオプションを上書き
 
         //キャンバスサイズ
@@ -67,7 +64,7 @@ class IScene extends THREE.Scene{
         });
         this.renderer.setPixelRatio(window.devicePixelRatio);   
         this.renderer.setSize(canvaswidth, canvasheight);  //レンダラのサイズ設定
-        this.renderer.setClearColor(0xdddddd);  //背景色
+        this.renderer.setClearColor(option.background);  //背景色
 
         //カメラ
         if(option.projection=='pers'){  //透視投影（第1引数：視野角, 第2引数：アスペクト比）
@@ -79,16 +76,24 @@ class IScene extends THREE.Scene{
 
 
         //ライティング（mathematica風）
-        this.lighta = new THREE.AmbientLight(0x663333); //環境光
-        this.light1 = new THREE.DirectionalLight(0x002E80,2);   //指向性ライト
-        this.light2 = new THREE.DirectionalLight(0x3e903e,2);
-        this.light3 = new THREE.DirectionalLight(0x902e00,2);
-        this.light4 = new THREE.DirectionalLight(0x00003d,2);
-        this.light1.position.copy(new THREE.Vector3(1,0,1));
-        this.light2.position.copy(new THREE.Vector3(2,2,3));
-        this.light3.position.copy(new THREE.Vector3(0,2,2));
-        this.light4.position.copy(new THREE.Vector3(0,0,2));
-        this.add(this.lighta, this.light1, this.light2, this.light3, this.light4);
+        let lighta = new THREE.AmbientLight(0x663333); //環境光
+
+        if(option.light=='4color'){
+            let light1 = new THREE.DirectionalLight(0x002E80,2);   //指向性ライト
+            let light2 = new THREE.DirectionalLight(0x3e903e,2);
+            let light3 = new THREE.DirectionalLight(0x902e00,2);
+            let light4 = new THREE.DirectionalLight(0x00003d,2);
+            light1.position.copy(new THREE.Vector3(1,0,1));
+            light2.position.copy(new THREE.Vector3(2,2,3));
+            light3.position.copy(new THREE.Vector3(0,2,2));
+            light4.position.copy(new THREE.Vector3(0,0,2));
+            this.add(lighta, light1, light2, light3, light4);
+        }else{
+            let light5 = new THREE.DirectionalLight(0xffffff,1);
+            light5.position.copy(new THREE.Vector4(0,1,3));
+            this.add(lighta, light5);
+        }
+
 
         //その他変数
         this.parasliders = [];   //スライダーの変数情報
@@ -322,8 +327,10 @@ class IGraphicComplex{
                 let material, wirematerial;
                 if(that.option.material=='normal'){
                     material = new THREE.MeshNormalMaterial({side:THREE.DoubleSide});    //NormalMaterial（ライティングを無視する）
-                }else{
+                }else if(that.option.material=='custom'){
                     material = new THREE.MeshLambertMaterial({side:THREE.DoubleSide});   //ツヤのないマテリアル（ライトが必要）
+                }else{
+                    material = new THREE.MeshLambertMaterial({side:THREE.DoubleSide, color:that.option.material});
                 }
                 material.flatShading = true;   //フラットシェード
 
