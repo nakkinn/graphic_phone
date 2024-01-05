@@ -1,9 +1,6 @@
 html,body{
     margin:0;   /*縁の余白なし*/
     padding:0;
-
-    -webkit-touch-callout:none;
-    -webkit-user-select:none; 
 }
 
 /*pタグ（文字）*/
