@@ -29,8 +29,8 @@ class IScene extends THREE.Scene{
         option = {...defaultvalues, ...option}; //デフォルトオプションに入力されたオプションを上書き
 
         //キャンバスサイズ
-        const canvaswidth = 760;    
-        const canvasheight = 540;
+        const canvaswidth = 760/2;    
+        const canvasheight = 540/2;
 
         //キャンバス
         this.block = document.createElement('div');
