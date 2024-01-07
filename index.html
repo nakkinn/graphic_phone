@@ -20,17 +20,19 @@
   </script>
 
   <!--メインプログラム-->
-  <script src="script7.js"></script>
+  <script src="script.js"></script>
 
   <!--キャンバスの追加-->
 
-  <p>図1 直交投影v5_7</p>
+  <h3>ver5_6</h3>
+
+  <p>図1 直交投影</p>
   <script>
     let myscene1 = new IScene({projection:'ortho', background:0x000000});
-    myscene1.IaddAnimeObject('data/cubevts.txt','data/cubeindex.txt',{material:'normal',scale:0.7});
+    myscene1.IaddObject('data/cubevts.txt','data/cubeindex.txt',{material:'normal',scale:0.7});
   </script>
 
-  <p>図2</p>
+  <p>図2 コマ送り</p>
   <script>
     let myscene2 = new IScene();
     myscene2.IaddAnimeObject('data/cubevts1.txt','data/cubeindex1.txt',{scale:2});
@@ -45,7 +47,7 @@
   </script>
 
 
-  <p>図4</p>
+  <p>図4 パラメータ</p>
   <script>
     let myscene4 = new IScene();
     myscene4.IaddSlider('longitude',{min:100, max:300});
@@ -54,14 +56,14 @@
   </script>
 
 
-  <p>図5</p>
+  <p>図5 2パラメータで表した曲面の範囲選択</p>
   <script>
     let myscene5 = new IScene();
     myscene5.IaddObject('data/sphere2vts.txt','data/sphere2index.txt',{scale:300, range:true, wireframe:true});
   </script>
 
 
-  <p>図6</p>
+  <p>図6 5つの正四面体の相貫体</p>
   <script>
     let myscene6 = new IScene({light:'simple'});
     myscene6.IaddObject('data/tetravts1.txt','data/tetraindex.txt',{scale:100, material:0xff0000});
