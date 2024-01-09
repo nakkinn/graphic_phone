@@ -11,6 +11,9 @@ p{
     margin-left:5px;
 }
 
+#canvas{
+    scale:2;
+}
 
 /*丸つまみスライダー*/
 input[type="range"]{

@@ -48,7 +48,7 @@ class IScene extends THREE.Scene{
         const defaultvalues = {projection:'pers', light:'4color', background:0xdddddd};  //オプションのデフォルト値
         option = {...defaultvalues, ...option}; //デフォルトオプションに入力されたオプションを上書き
 
-        //キャンバスサイズ
+        //キャンバスサイズ（この値を大きくすると高画質・高負荷になる）
         const canvaswidth = 380;    
         const canvasheight = 270;
 
