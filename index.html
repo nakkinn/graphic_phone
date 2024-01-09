@@ -76,7 +76,14 @@
   <p>図7</p>
   <script>
     let myscene7 = new IScene();
-    myscene7.IaddObject('data/mebius1vts.txt','data/mebius1index.txt',{scale:150, material:'normal'});
+    myscene7.IaddObject('data/mebius1vts.txt','data/mebius1index.txt',{scale:150, material:'normal', range:true, wireframe:true});
+  </script>
+
+  <p>図8</p>
+  <script>
+    let myscene8 = new IScene();
+    myscene8.IaddObject('data/mebius2vts.txt','data/mebius1index.txt',{scale:150});
+    myscene8.IaddCuttingPlanes('data/cut6.txt',{scale:500})
   </script>
 
 </body>
